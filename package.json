@@ -18,11 +18,11 @@
     "testEnvironment": "jsdom"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject",
-    "dev": "netlify dev"
+    "test": "exit 0",
+    "lint": "eslint --ext js --ext jsx src",
+    "start": "webpack serve --hot --mode development --devtool eval-source-map --open",
+    "start:watch": "npm run start",
+    "build": "webpack --devtool source-map"
   },
   "keywords": [],
   "author": "",
@@ -55,7 +55,6 @@
     "url-loader": "^4.1.1",
     "webpack": "^5.74.0",
     "webpack-cli": "^4.10.0",
-    "react-scripts": "5.0.1",
     "webpack-dev-server": "^4.9.3"
   },
   "dependencies": {
