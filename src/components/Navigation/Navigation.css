@@ -19,7 +19,7 @@
       align-items: flex-start;
     }
     :hover {
-      background-color: #F68E5F;
+      background-color: var(--hover-color);
       transition: 1s ease-in-out;
     }
   }

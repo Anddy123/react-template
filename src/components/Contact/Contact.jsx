@@ -1,4 +1,4 @@
-import styles from './Header.css';
+import styles from './Contact.css';
 import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 import OutlinedInput from '@mui/material/OutlinedInput';
