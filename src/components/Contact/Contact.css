@@ -1,0 +1,11 @@
+.Home {
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+  
+    h1 {
+      font-size: 2rem;
+      font-weight: bold;
+      margin: 0;
+      padding: 0;
+    }
+  }
