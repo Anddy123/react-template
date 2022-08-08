@@ -9,7 +9,7 @@ import Home from './Home/Home.jsx';
 import Contact from './Contact/Contact.jsx';
 import Pokedex from './Pokedex/Pokedex.jsx';
 import FuzzyBunny from './FuzzyBunny/FuzzyBunny.jsx';
-import FuzzyBunnyProvider from './state/context/fuzzybunnycontext.jsx';
+import FuzzyBunnyProvider from './state/context/funzzyBcontext.jsx';
 import { Toaster } from 'react-hot-toast';
 
 export default function App() {
