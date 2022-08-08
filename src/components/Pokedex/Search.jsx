@@ -1,12 +1,12 @@
 /* eslint-disable react/prop-types */
 import { useState, useEffect } from 'react';
-import { useSearch } from '../../hooks/url.js';
+import { useSearch } from '../../hooks/pokeUrl.js';
 import { useTypes } from '../../hooks/pokedex.js';
 import {
   InputControl,
   SelectControl,
   FormButton,
-} from '../Forms/Form.jsx';
+} from '../Form/Form.jsx';
 import styles from './Search.css';
 
 export default function Search() {
