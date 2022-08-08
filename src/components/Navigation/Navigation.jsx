@@ -7,6 +7,7 @@ export default function Navigation() {
       <Link to="/">Home</Link>
       <Link to="contact">Contact</Link>
       <Link to="about">About</Link>
+      <Link to="pokedex">Pokedex</Link>
     </nav>
   );
 }
