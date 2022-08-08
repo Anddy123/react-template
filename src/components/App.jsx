@@ -7,6 +7,7 @@ import {
 import Layout from './Layout/Layout.jsx';
 import Home from './Home/Home.jsx';
 import Contact from './Contact/Contact.jsx';
+import Pokedex from './Pokedex/Pokedex.jsx';
 
 export default function App() {
   return (
@@ -15,6 +16,8 @@ export default function App() {
         <Route path="/" element={<Layout />}>
           <Route index element={<Home />} />
           <Route path="contact" element={<Contact />} />
+          <Route path="pokedex" element={<Pokedex />} />
+          <Route path="fuzzybunny" element={<FuzzyBunny />} />
           <Route path="*" element={<Navigate to="/" replace />} />
         </Route>
       </Routes>
