@@ -1,7 +1,7 @@
 import { useSearchParams } from 'react-router-dom';
 import { usePokedex } from '../../hooks/pokedex.js';
-import PokemonList from './PokemonList.jsx';
-import Search from './Search.js';
+import PokemonList from './PokedexList.jsx';
+import Search from './Search.jsx';
 import styles from './Pokedex.css';
 
 export default function Pokedex() {

@@ -1,5 +1,5 @@
 import { Outlet } from 'react-router-dom';
-import Navigation from '../Page/Navigation/Navigation.jsx';
+import Navigation from '../Navigation/Navigation.jsx';
 import styles from './FuzzyBunny.css';
 
 const navigation = [

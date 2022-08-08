@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { getPokedex, getTypes } from '../services/pokedex-service.js';
+import { getPokedex, getTypes } from '../services/pokedexService.js';
 
 export function useTypes() {
   const [types, setTypes] = useState([]);
