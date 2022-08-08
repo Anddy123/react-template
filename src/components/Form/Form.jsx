@@ -1,9 +1,9 @@
 /* eslint-disable react/prop-types */
-import { Children, cloneElement } from 'react';
+import { Children, cloneElement, forwardRef } from 'react';
 import classNames from 'classnames';
-import styles from './Form.css';
+import styles from './FormControls.css';
 
-function Form({
+function FormControl({
   label,
   children,
   className: customClassName,
@@ -54,6 +54,7 @@ export function CheckboxControl({ label, ...rest }) {
 export function OptionGroupControl({
   label,
   name,
+  onChange,
   size = '100px',
   children,
 }) {
@@ -71,7 +72,7 @@ export function OptionGroupControl({
           }}
         >
           {Children.map(children, (child) =>
-            cloneElement(child, { name })
+            cloneElement(child, { name, onChange })
           )}
         </div>
       </fieldset>
@@ -79,38 +80,62 @@ export function OptionGroupControl({
   );
 }
 
-export function InputControl({ label, className, value, ...rest }) {
-  return (
-    <Form label={label} className={className}>
-      <input value={value || ''} {...rest} />
-    </Form>
-  );
-}
+const verifyValue = (props) => {
+  if (Object.prototype.hasOwnProperty.call(props, 'value'))
+    props.value = props.value ?? '';
+};
 
-export function SelectControl({ label, children, value, ...rest }) {
+export const InputControl = forwardRef((props, ref) => {
+  const { label, className, children, ...rest } = props;
+  verifyValue(rest);
+
   return (
-    <Form label={label}>
-      <select value={value || ''} {...rest}>
+    <FormControl label={label} className={className}>
+      <input ref={ref} {...rest} />
+      {children}
+    </FormControl>
+  );
+});
+
+InputControl.displayName = 'InputControl';
+
+export const SelectControl = forwardRef((props, ref) => {
+  const { label, children, ...rest } = props;
+  verifyValue(rest);
+
+  return (
+    <FormControl label={label}>
+      <select ref={ref} {...rest}>
         {children}
       </select>
-    </Form>
+    </FormControl>
   );
-}
+});
 
-export function TextAreaControl({ label, ...rest }) {
+SelectControl.displayName = 'SelectControl';
+
+export const TextAreaControl = forwardRef((props, ref) => {
+  const { label, ...rest } = props;
+  verifyValue(rest);
+
   return (
-    <Form label={label}>
-      <textarea {...rest}></textarea>
-    </Form>
+    <FormControl label={label}>
+      <textarea ref={ref} {...rest}></textarea>
+    </FormControl>
   );
-}
+});
+
+TextAreaControl.displayName = 'TextAreaControl';
 
 export function FormButton({
   children,
+  icon = false,
   className: customClassName,
   ...rest
 }) {
-  const className = classNames(styles.FormButton, customClassName);
+  const className = classNames(styles.FormButton, customClassName, {
+    [styles.Icon]: icon,
+  });
 
   return (
     <button className={className} {...rest}>
@@ -120,7 +145,7 @@ export function FormButton({
 }
 
 export function FormButtonControl(props) {
-  return <FormButton className={styles.Form} {...props} />;
+  return <FormButton className={styles.FormControl} {...props} />;
 }
 
 export function Fieldset({ legend, children }) {
