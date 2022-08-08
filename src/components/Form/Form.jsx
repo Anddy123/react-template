@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
 import { Children, cloneElement, forwardRef } from 'react';
 import classNames from 'classnames';
-import styles from './FormControls.css';
+import styles from './Form.css';
 
 function FormControl({
   label,
